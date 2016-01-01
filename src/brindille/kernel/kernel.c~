@@ -1,0 +1,6 @@
+#include <kernel/tty.h>
+
+void kmain()
+{
+    write_string( 8, "Hello, World" );
+}

@@ -25,18 +25,6 @@ void putRect ( int x1, int y1, int x2, int y2, uint32_t color )
 	}
 }
 
-void drawGradient ( uint32_t color1, uint32_t color2 )
-{
-	for(int s = 0; s<255; s++;)
-	{
-		for(int h = 0; h<255; h++;)
-		{
-			putPix(s, h, );
-		}
-	}
-
-}
-
 void drawBG (uint32_t color)
 {
 	putRect ( 0, 0, fb_screenW, fb_screenH, color );
@@ -44,20 +32,24 @@ void drawBG (uint32_t color)
 
 /*void putLine( int x0, int y0, int x1, int y1, uint32_t color )
 {
-	double x = x1 - x0;
-	double y = y1 - y0;
-	double length = sqrt( x*x + y*y );
-	double addx = x / length;
-	double addx = y / length;
-	x = x0;
-	y = y0;
+	int dx = x1 - x0;
+	int dy = y1 - y0;
 	
-	for ( i = 0; i < length; i += 1) {
-		putPix( x, y, color );
-		x += addx;
-		y += addy;
+	int d = 2*dy - dx;
+	putPix ( x0, y0, color );
+	int y = y0;
+	
+	for (int x = x0; x <= x1; ++x)
+	{
+		putPix ( x, y, color );
+		d = d + (2*dy);
+		if ( d > 0 )
+		{
+			y = y+1;
+			d = d - (2*dx);
+		}
 	}
-}*/
+}
 
 /*
 Initializing VESA mode. You'll need a Multiboot struct to work, because it's using info from it.

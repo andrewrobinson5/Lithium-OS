@@ -8,8 +8,8 @@ mkdir -p isodir/boot/grub
 
 cp sysroot/boot/brindille.kernel isodir/boot/brindille.kernel
 cat > isodir/boot/grub/grub.cfg << EOF
-menuentry "LearOS" {
+menuentry "LithiumOS" {
 	multiboot /boot/brindille.kernel
 }
 EOF
-grub-mkrescue -o learos.iso isodir
+grub-mkrescue -o lithium.iso isodir

@@ -30,7 +30,7 @@ void drawBG (uint32_t color)
 	putRect ( 0, 0, fb_screenW, fb_screenH, color );
 }
 
-/*void putLine( int x0, int y0, int x1, int y1, uint32_t color )
+void putLine( int x0, int y0, int x1, int y1, uint32_t color )
 {
 	int dx = x1 - x0;
 	int dy = y1 - y0;
